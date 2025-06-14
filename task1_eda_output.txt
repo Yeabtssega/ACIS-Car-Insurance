@@ -1,0 +1,11 @@
+First 5 rows:
+   UnderwrittenCoverID  PolicyID TransactionMonth  ...  StatutoryRiskType TotalPremium TotalClaims
+0               145249     12827       2015-03-01  ...      IFRS Constant    21.929825         0.0
+1               145249     12827       2015-05-01  ...      IFRS Constant    21.929825         0.0
+2               145249     12827       2015-07-01  ...      IFRS Constant     0.000000         0.0
+3               145255     12827       2015-05-01  ...      IFRS Constant   512.848070         0.0
+4               145255     12827       2015-07-01  ...      IFRS Constant     0.000000         0.0
+
+[5 rows x 52 columns]
+
+Data info:
