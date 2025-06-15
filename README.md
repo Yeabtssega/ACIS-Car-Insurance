@@ -59,6 +59,7 @@ Minimum and maximum values show some negative and extremely large outliers.
 
 ---
 
+
 ### Visualizations
 
 **Histogram of Total Premium vs Total Claims**  
@@ -72,6 +73,12 @@ This histogram shows the distribution of total premium and total claims amounts 
 This bar plot shows the top 10 banks with the highest number of insurance policies in the dataset.
 
 ---
+## Task 1 Summary
+- Performed exploratory analysis on 5,000+ insurance claims
+- Cleaned missing values and formatted date fields
+- Visualized claim amount distribution and common claim types
+- Output: `cleaned_data_task1.csv`
+
 
 Report generated using Python pandas and matplotlib.  
 Date: 2025-06-14  
