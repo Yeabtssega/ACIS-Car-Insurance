@@ -1,20 +1,3 @@
-# ACIS Car Insurance Analytics - Week 1
-
-This repository contains the code and analyses for Week 1 of the AlphaCare Insurance Solutions (ACIS) car insurance analytics project.
-
-## Contents
-
-- Exploratory Data Analysis (EDA)
-- Data cleaning and quality assessment
-- Initial statistics and visualizations
-- Git and GitHub setup with CI/CD pipeline
-
-## Project Setup
-
-- Python 3.11
-- pandas, matplotlib, seaborn
-- GitHub Actions for CI workflow
-
-## Contact
-
-Prepared by Yeabtsega Tilahun
+version https://git-lfs.github.com/spec/v1
+oid sha256:95860665b0b3cb5a17fdf45ebee332d3cb3d00f9ebeb60fe9cf72c646faa78f4
+size 505
