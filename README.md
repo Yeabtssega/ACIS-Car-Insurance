@@ -1,75 +1,59 @@
-# AlphaCare Insurance Solutions (ACIS)
+# ACIS Car Insurance Risk & Rating Analysis
 
-## 📊 Car Insurance Claim Risk Analytics Project  
-Prepared by **Yeabtsega Tilahun**  
-June 2025
-
----
-
-## ✅ Task 1: Exploratory Data Analysis (EDA)
-
-### Objective  
-Analyze historical South African car insurance claim data to discover patterns, clean missing data, and generate actionable insights for ACIS marketing and pricing teams.
-
-### Dataset Summary  
-- **Size:** 616,314 rows × 52 columns  
-- **Features:** Policy, premium, claim, region, bank info, and vehicle data  
-- **Missing Value Handling:**
-  - Dropped columns with 100% nulls (`CrossBorder`, `NumberOfVehiclesInFleet`)
-  - Cleaned key features (`Bank`, `AccountType`, `CustomValueEstimate`, etc.)
-
-### Key Statistics
-| Column                  | Mean     | Std Dev | Min   | Max     |
-|-------------------------|----------|---------|-------|---------|
-| Total Premium           | 62.17    | 156.81  | 0.00  | 18,000+ |
-| Total Claims            | 64.21    | 2,335.88| 0.00  | 950,000+ |
-| CalculatedPremiumPerTerm| 116.10   | 218.50  | -60   | 2,000+  |
-
-### Visualizations
-- ✅ **`premium_claims_histograms.png`** – Distribution of Total Premium vs Claims  
-- ✅ **`top10_banks.png`** – Top 10 banks by number of insurance policies
-
-### Outputs
-- `cleaned_data_task1.csv`: Cleaned version of the original dataset
-- `task1_eda_output.txt`: EDA report summary
-- `task1_eda.py`: Python script for loading, cleaning, and analyzing data
+**Prepared by Yeabtsega Tilahun**  
+**Date:** June 2025  
 
 ---
 
-## 📈 Task 2: Git, Git LFS & Version Control
+## 🚗 Overview
 
-### Objectives  
-Set up robust version control for handling large files and tracking analytics results.
+**ACIS** (AlphaCare Insurance Solutions) project aims to explore and predict car insurance risk and rating through data-driven analysis. This repo covers:
 
-### Implementation
-- Initialized Git repository in `ACIS-Car-Insurance-EDA`
-- Added remote: [Yeabtssega/ACIS-Car-Insurance](https://github.com/Yeabtssega/ACIS-Car-Insurance)
-- Configured **Git LFS** to track:
-  - `cleaned_MachineLearningRating.csv`
-  - `task1_eda_output.txt`
-  - `eda_output.txt`
+- **Task 1: Exploratory Data Analysis (EDA)**  
+  Understanding dataset structure, cleaning, and visualizing key insights.
 
-### Outputs
-- `.gitattributes`: Git LFS configuration
-- Large files properly pushed using Git LFS
-- Branches used:
-  - `main`: Final version
-  - `task-2`: LFS integration and task deliverables
+- **Task 2: Data Versioning with DVC and Git LFS**  
+  Managing large cleaned datasets efficiently for reproducibility.
+
+- **Task 3: Predictive Modeling (Upcoming)**  
+  Build and evaluate a model to estimate insurance risk score.
 
 ---
 
-## ✅ Submission Checklist
+## ✅ Task 1: EDA Highlights
 
-| Task            | Status       |
-|-----------------|--------------|
-| Task 1 - EDA    | ✅ Completed |
-| Task 2 - Git/LFS| ✅ Completed |
-| README Updated  | ✅ Yes       |
-| GitHub Repo     | ✅ [View Here](https://github.com/Yeabtssega/ACIS-Car-Insurance) |
+- **Dataset:** `historical_claims.csv` – 616,314 rows and 52 columns.  
+- **Cleaning Steps:** Dropped fully null columns (`CrossBorder`, `NumberOfVehiclesInFleet`), resolved missing values in others.  
+- **Outputs:**  
+  - `cleaned_data_task1.csv` – Cleaned dataset (Git LFS tracked).  
+  - `task1_eda.py` – Script includes:
+    - Data loading, null-checks, descriptive stats.
+    - Visuals:  
+      ![Premium vs Claims Histogram](premium_claims_histograms.png)  
+    - Top banks by policy volume:  
+      ![Top Banks Bar Plot](top10_banks.png)
+  - `eda_output.txt` – Command-line summary log.
 
 ---
 
-## 🔖 Notes
-- All large files tracked and pushed successfully with Git LFS.
-- Final submission meets ACIS documentation and data standards.
+## ✅ Task 2: Data Versioning
 
+- Tracked large data files with Git LFS; see `.gitattributes`.
+- Maintained clean commit history:
+  - “Track large files with Git LFS”
+  - “Complete Task 1: EDA with visualizations and output summary”
+- Branches:
+  - `main` – Task 1 files
+  - `task-2` – Includes Versioned large files and setup
+
+---
+
+## 📚 Requirements
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
