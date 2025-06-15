@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  eda_analysis:
+    cmd: python task1eda_fixed.py
+    deps:
+    - path: cleaned_MachineLearningRating.csv
+      hash: md5
+      md5: 49a7234b39bd57142e7e116bfbd900ac
+      size: 319801530
+    - path: task1eda_fixed.py
+      hash: md5
+      md5: 6f99824cee0cbf7a953fa53b81cc0a15
+      size: 1362
+    outs:
+    - path: fig_correlation_heatmap.png
+      hash: md5
+      md5: e8e9a3edb356142d2e17bd03c588014e
+      size: 181518
+    - path: fig_covergroup_distribution.png
+      hash: md5
+      md5: 5595eeb3149c63153f298c6e5d133e86
+      size: 36799
+    - path: fig_totalpremium_dist.png
+      hash: md5
+      md5: d3da55d3d3633dd32fd958a740588f7d
+      size: 29288
