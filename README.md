@@ -1,84 +1,102 @@
-# AlphaCare Insurance Solutions (ACIS)  
-## Task 1: Exploratory Data Analysis (EDA) Report  
+# ACIS Car Insurance Risk & Rating Analysis
 
 **Prepared by Yeabtsega Tilahun**  
+**Date:** June 2025  
 
 ---
 
-### First 5 Rows of Data
+## 🚗 Overview
 
-Below is the preview of the first five rows from the insurance claims dataset:
+**ACIS** (AlphaCare Insurance Solutions) project aims to explore and predict car insurance risk and rating through data-driven analysis. This repo covers:
 
-| UnderwrittenCoverID | PolicyID | TransactionMonth | ... | StatutoryRiskType | TotalPremium | TotalClaims |
-|--------------------|----------|------------------|-----|-------------------|--------------|-------------|
-| 145249             | 12827    | 2015-03-01       | ... | IFRS Constant     | 21.929825    | 0.0         |
-| 145249             | 12827    | 2015-05-01       | ... | IFRS Constant     | 21.929825    | 0.0         |
-| 145249             | 12827    | 2015-07-01       | ... | IFRS Constant     | 0.000000     | 0.0         |
-| 145255             | 12827    | 2015-05-01       | ... | IFRS Constant     | 512.848070   | 0.0         |
-| 145255             | 12827    | 2015-07-01       | ... | IFRS Constant     | 0.000000     | 0.0         |
+- **Task 1: Exploratory Data Analysis (EDA)**  
+  Understanding dataset structure, cleaning, and visualizing key insights.
 
----
+- **Task 2: Data Versioning with DVC and Git LFS**  
+  Managing large cleaned datasets efficiently for reproducibility.
 
-### Dataset Overview
-
-The dataset contains 616,314 rows and 52 columns. Below is a summary of the column data types and non-null counts:
-
-- 1 bool, 12 float64, 4 int64, 35 object  
-- Memory usage: 240.4+ MB  
-- Many columns contain some missing values.  
-- Two columns (CrossBorder, NumberOfVehiclesInFleet) contained only missing values and were dropped.
+- **Task 3: Predictive Modeling (Upcoming)**  
+  Build and evaluate a model to estimate insurance risk score.
 
 ---
 
-### Missing Values Summary
+## ✅ Task 1: EDA Highlights
 
-Significant missing values were found in some columns. For example:
-
-- Bank: 101,168 missing  
-- AccountType: 29,882 missing  
-- CustomValueEstimate: 471,172 missing  
-- WrittenOff, Rebuilt, Converted: 404,065 missing each  
-- CrossBorder and NumberOfVehiclesInFleet: 100% missing (dropped)
-
-Columns with all missing values were removed from the analysis to improve data quality.
-
----
-
-### Summary Statistics for Numeric Columns
-
-| Column               | Mean    | Std Dev  | Min     | Max       |
-|----------------------|---------|----------|---------|-----------|
-| UnderwrittenCoverID   | 112,639 | 59,780   | ...     | ...       |
-| PolicyID             | 8,711   | 5,042    | ...     | ...       |
-| PostalCode           | 2,626   | 2,439    | ...     | ...       |
-| CalculatedPremiumPerTerm | 116.1 | 218.5    | ...     | ...       |
-| TotalPremium         | 62.17   | 156.81   | ...     | ...       |
-| TotalClaims          | 64.21   | 2,335.88 | ...     | ...       |
-
-Minimum and maximum values show some negative and extremely large outliers.
+- **Dataset:** `historical_claims.csv` – 616,314 rows and 52 columns.  
+- **Cleaning Steps:** Dropped fully null columns (`CrossBorder`, `NumberOfVehiclesInFleet`), resolved missing values in others.  
+- **Outputs:**  
+  - `cleaned_data_task1.csv` – Cleaned dataset (Git LFS tracked).  
+  - `task1_eda.py` – Script includes:
+    - Data loading, null-checks, descriptive stats.
+    - Visuals:  
+      ![Premium vs Claims Histogram](premium_claims_histograms.png)  
+    - Top banks by policy volume:  
+      ![Top Banks Bar Plot](top10_banks.png)
+  - `eda_output.txt` – Command-line summary log.
 
 ---
 
+## ✅ Task 2: Data Versioning
 
-### Visualizations
-
-**Histogram of Total Premium vs Total Claims**  
-![Histogram](premium_claims_histograms.png)  
-
-This histogram shows the distribution of total premium and total claims amounts across all policies.
-
-**Bar Plot of Top 10 Banks by Number of Policies**  
-![Bar Plot](top10_banks.png)  
-
-This bar plot shows the top 10 banks with the highest number of insurance policies in the dataset.
+- Tracked large data files with Git LFS; see `.gitattributes`.
+- Maintained clean commit history:
+  - “Track large files with Git LFS”
+  - “Complete Task 1: EDA with visualizations and output summary”
+- Branches:
+  - `main` – Task 1 files
+  - `task-2` – Includes Versioned large files and setup
 
 ---
-## Task 1 Summary
-- Performed exploratory analysis on 5,000+ insurance claims
-- Cleaned missing values and formatted date fields
-- Visualized claim amount distribution and common claim types
-- Output: `cleaned_data_task1.csv`
 
+## 🚧 Task 3: Predictive Rating Model
 
-Report generated using Python pandas and matplotlib.  
-Date: 2025-06-14  
+### Goal:
+Develop a predictive model to estimate an insurance rating score or flag high-risk policies.
+
+### 🔧 Suggested Steps:
+
+1. **Data Preparation**
+   - Load `cleaned_data_task1.csv`
+   - Engineer features (e.g., `ClaimRatio = TotalClaims / TotalPremium`)
+   - Handle categorical variables (e.g., `Bank`, `PolicyType`)
+
+2. **Model Design**
+   - Choose regressors: Linear Regression, Random Forest Regressor, XGBoost
+   - Define target (e.g., a risk score, or classify risky vs. non-risky)
+
+3. **Training & Validation**
+   - Split into train/test sets (e.g., 80/20)
+   - Use cross-validation for stable performance estimate
+   - Evaluate using RMSE, MAE (for regression) or ROC-AUC, accuracy (for classification)
+
+4. **Code & Reproducibility**
+   - Script: `task3_model.py`
+   - Save model: `acis_rating_model.pkl`
+   - Evaluation log: `task3_results.txt`
+   - Optionally use `scikit-learn` pipelines for preprocessing and modeling
+
+5. **Documentation**
+   - Add Task 3 section to README:
+     ```markdown
+     ## 🧠 Task 3: Predictive Model
+     - Script: `task3_model.py`
+     - Model saved: `acis_rating_model.pkl`
+     - Evaluation metrics (example): RMSE, MAE, R²
+     ```
+   - Include installation steps in README:
+
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+---
+
+## 📚 Requirements
+
+```text
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+joblib
