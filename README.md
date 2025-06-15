@@ -57,3 +57,4 @@ matplotlib
 seaborn
 scikit-learn
 joblib
+dvc
